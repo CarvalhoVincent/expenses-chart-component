@@ -1,0 +1,248 @@
+/* ------------------- */
+/* Custom properties   */
+/* ------------------- */
+
+:root {
+    /* colors */
+    --clr-softRed: 10 79% 64%;
+    --clr-cyan: 186 34% 60%;
+    --clr-darkBrown: 25 47% 15%;
+    --clr-mediumBrown: 28 10% 53%;
+    --clr-cream: 27 66% 92%;
+    --clr-veryPaleOrange: 33 100% 98%;
+    
+    /* font-sizes */
+    --fs-1: 1.875rem;
+    --fs-2: 1.5rem;
+    --fs-3: 0.9375rem;
+    --fs-4: 0.75rem;
+}
+
+@media (min-width: 35em) {
+    :root {
+        --fs-1: 3rem;
+        --fs-2: 2rem;
+        --fs-3: 1.125rem;
+        --fs-4: 0.9375rem;
+    }
+}
+
+
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
+
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+    margin: 0; 
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    font-weight: 400;
+}
+
+/* set up the body */
+body {
+    font-family: 'DM Sans', sans-serif;
+    color: hsl( var(--clr-darkBrown) );
+    background-color: hsl( var(--clr-cream) );
+    line-height: 1.5;
+    min-height: 100vh;
+    
+    display: grid;
+    grid-template-rows: min-content 1fr;
+
+    overflow-x: hidden;
+}
+
+/* make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* make form elements easier to work with */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* ------------------- */
+/* Utility classes     */
+/* ------------------- */
+
+/* general */
+
+.flex {
+    display: flex;
+    gap: var(--gap, 1rem);
+}
+
+.grid {
+    display: grid;
+    gap: var(--gap, 1rem);
+}
+
+.d-block {
+    display: block;
+}
+
+.sr-only {
+  position: absolute; 
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px; 
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+
+/* colors */
+
+.bg-softRed { background-color: hsl( var(--clr-softRed) );}
+.bg-cyan { background-color: hsl( var(--clr-cyan) );}
+.bg-cream { background-color: hsl( var(--clr-cream) );}
+.bg-veryPaleOrange { background-color: hsl( var(--clr-veryPaleOrange) );}
+
+.text-veryPaleOrange { color: hsl( var(--clr-veryPaleOrange) );}
+.text-darkBrown { color: hsl( var(--clr-darkBrown) );}
+.text-mediumBrown { color: hsl( var(--clr-mediumBrown) );}
+
+/* typography */ 
+
+.uppercase { text-transform: uppercase; }
+
+.fs-1 { font-size: var(--fs-1); line-height: 39.06px; font-weight: 700;}
+.fs-2 { font-size: var(--fs-2); line-height: 31.25px; font-weight: 700;}
+.fs-3 { font-size: var(--fs-3); line-height: 19.53px; font-weight: 400;}
+.fs-4 { font-size: var(--fs-4); line-height: 15.62px; font-weight: 400;}
+
+@media (min-width: 35em) {
+    .fs-1 {
+        line-height: 62.5px;
+    }
+    .fs-2 {
+        line-height: 41.66px;
+    }
+    .fs-3 {
+        line-height: 23.44px;
+    }
+    .fs-4 {
+        line-height: 19.53px;
+    }
+}
+.attribution { font-size: 11px; text-align: center; align-self: end;}
+.attribution a { color: hsl(228, 45%, 44%); }
+
+
+/*     Layout     */
+
+.header {
+    margin-top: 4.1875rem;
+    margin-inline: 1rem;
+    margin-bottom: 1rem;
+    padding: 20px 24px 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.header h1 {
+    margin-bottom: 4px;
+}
+
+.main {
+    margin-inline: 1rem;
+    border-radius: 10px;
+    padding: 1.5rem 1.25rem;
+}
+
+@media (min-width: 35em) {
+    .header, .main {
+        width: 33.75rem;
+        margin-inline: auto;
+        margin-bottom: 1.5rem;
+    }
+
+    .header h1 {
+        margin-bottom: 8px;
+    }
+}
+
+.chart {
+    border-bottom: solid 2px hsl( var(--clr-cream) );
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 1.5rem;
+}
+
+.total-nbr {
+    line-height: 30px;
+    margin-top: .5rem;
+}
+
+.right {
+    text-align: right;
+}
+
+.percentage {
+    font-weight: 700;
+    text-align: right;
+}
+
+@media (min-width: 35em) {
+    .total {
+        margin-top: 2rem;
+    }
+
+    .total-nbr {
+        line-height: 39px;
+        margin-top: 1rem;
+    }
+}
