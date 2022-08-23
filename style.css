@@ -197,6 +197,11 @@ select {
     margin-inline: 1rem;
     border-radius: 10px;
     padding: 1.5rem 1.25rem;
+    height: 421px;
+}
+
+.main h2 {
+    margin-bottom: 3.25rem;
 }
 
 @media (min-width: 35em) {
@@ -209,11 +214,75 @@ select {
     .header h1 {
         margin-bottom: 8px;
     }
+
+    .header img {
+        width: 72px;
+        height: 48px;
+    }
+
+    .main {
+        padding-inline: 2.5rem;
+        height: 511px;
+    }
+
+    .main h2 {
+        margin-bottom: 4.125rem;
+    }
 }
 
 .chart {
     border-bottom: solid 2px hsl( var(--clr-cream) );
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 0.75rem;
+    padding-bottom: 1.5rem;
 }
+
+.days {
+    font-size: var(--fs-4);
+    color: hsl( var(--clr-mediumBrown) );
+    text-align: center;
+}
+
+.bar {
+    width: 33px;
+    border-radius: 5px;
+    margin-bottom: .6875rem;
+    cursor: pointer;
+}
+
+@media (min-width: 35em) {
+
+    .chart {
+        gap: 1.125rem;
+        padding-bottom: 2rem;
+    }
+
+    .bar {
+        width: 50.36px;
+        margin-bottom: .5rem;
+    }
+}
+
+
+.inactive {
+    background-color: hsl( var(--clr-softRed) );
+}
+
+.inactive:hover {
+    background-color: #FF9B86;
+}
+
+.active {
+    background-color: hsl( var(--clr-cyan) );
+}
+
+.active:hover {
+    background-color: #B4E0E5;
+}
+
+
 
 .total {
     display: flex;
