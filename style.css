@@ -243,6 +243,23 @@ select {
     font-size: var(--fs-4);
     color: hsl( var(--clr-mediumBrown) );
     text-align: center;
+    position: relative;
+}
+
+.daysValue {
+    width: 40px;
+    height: 23px;
+    border-radius: 5px;
+    background-color: hsl( var(--clr-darkBrown) );
+    color: hsl( var(--clr-veryPaleOrange) );
+    font-size: 11px;
+    font-weight: 700;
+    position: absolute;
+    right: -4px;
+    top: -30px;
+    display: none;
+    justify-content: center;
+    align-items: center;
 }
 
 .bar {
@@ -253,6 +270,14 @@ select {
 }
 
 @media (min-width: 35em) {
+
+    .daysValue {
+        width: 71px;
+        height: 40px;
+        font-size: var(--fs-3);
+        right: -10px;
+        top: -50px;
+    }
 
     .chart {
         gap: 1.125rem;
@@ -281,8 +306,6 @@ select {
 .active:hover {
     background-color: #B4E0E5;
 }
-
-
 
 .total {
     display: flex;

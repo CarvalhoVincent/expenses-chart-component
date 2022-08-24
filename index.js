@@ -22,7 +22,16 @@ const bar5 = document.getElementById("bar5");
 const bar6 = document.getElementById("bar6");
 const bar7 = document.getElementById("bar7");
 
+const monValue = document.getElementById("monValue");
+const tueValue = document.getElementById("tueValue");
+const wedValue = document.getElementById("wedValue");
+const thuValue = document.getElementById("thuValue");
+const friValue = document.getElementById("friValue");
+const satValue = document.getElementById("satValue");
+const sunValue = document.getElementById("sunValue");
+
 const bars = document.getElementsByClassName("bar");
+const allBars = document.querySelectorAll(".bar");
 
 
 fetch("./data.json")
@@ -43,6 +52,14 @@ fetch("./data.json")
         sat.innerHTML = data[5].day;
         sun.innerHTML = data[6].day;
 
+        monValue.innerHTML = "$" + data[0].amount;
+        tueValue.innerHTML = "$" + data[1].amount;
+        wedValue.innerHTML = "$" + data[2].amount;
+        thuValue.innerHTML = "$" + data[3].amount;
+        friValue.innerHTML = "$" + data[4].amount;
+        satValue.innerHTML = "$" + data[5].amount;
+        sunValue.innerHTML = "$" + data[6].amount;
+
         bar1.style.height = ((data[0].amount) * 2.86) + "px";
         bar2.style.height = ((data[1].amount) * 2.86) + "px";
         bar3.style.height = ((data[2].amount) * 2.86) + "px";
@@ -50,7 +67,39 @@ fetch("./data.json")
         bar5.style.height = ((data[4].amount) * 2.86) + "px";
         bar6.style.height = ((data[5].amount) * 2.86) + "px";
         bar7.style.height = ((data[6].amount) * 2.86) + "px";
-           
-        
-
     });
+
+
+//----- Hover box effect and change focus ----//
+
+    for (let e of bars) {
+        e.addEventListener("mouseover", hoverEffect);
+        function hoverEffect() {
+            e.firstElementChild.style = "display: flex;";
+        }
+        e.addEventListener("mouseout", removeHover);
+        function removeHover() {
+            e.firstElementChild.style = "display: none;";
+        }
+
+        e.addEventListener("click", changefocus);
+        function changefocus() {
+
+            for (let all of allBars) {
+            all.classList.add("inactive");
+            all.classList.remove("active");
+            all.parentElement.setAttribute("aria-selected", false);
+            }
+
+
+            e.classList.remove("inactive");
+            e.classList.add("active");
+            e.parentElement.setAttribute("aria-selected", true);
+        }
+    }
+
+
+
+    
+
+
