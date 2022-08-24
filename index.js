@@ -74,17 +74,17 @@ fetch("./data.json")
 
 //----- Hover box effect and change focus ----//
 
-    for (let e of bars) {
-        e.addEventListener("mouseover", hoverEffect);
+    for (let one of bars) {
+        one.addEventListener("mouseover", hoverEffect);
         function hoverEffect() {
-            e.firstElementChild.style = "display: flex;";
+            one.firstElementChild.style = "display: flex;";
         }
-        e.addEventListener("mouseout", removeHover);
+        one.addEventListener("mouseout", removeHover);
         function removeHover() {
-            e.firstElementChild.style = "display: none;";
+            one.firstElementChild.style = "display: none;";
         }
 
-        e.addEventListener("click", changefocus);
+        one.addEventListener("click", changefocus);
         function changefocus() {
 
             for (let all of allBars) {
@@ -93,8 +93,8 @@ fetch("./data.json")
             all.parentElement.setAttribute("aria-selected", false);
             }
 
-            e.classList.remove("inactive");
-            e.classList.add("active");
-            e.parentElement.setAttribute("aria-selected", true);
+            one.classList.remove("inactive");
+            one.classList.add("active");
+            one.parentElement.setAttribute("aria-selected", true);
         }
     }
