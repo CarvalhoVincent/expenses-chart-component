@@ -91,15 +91,8 @@ fetch("./data.json")
             all.parentElement.setAttribute("aria-selected", false);
             }
 
-
             e.classList.remove("inactive");
             e.classList.add("active");
             e.parentElement.setAttribute("aria-selected", true);
         }
     }
-
-
-
-    
-
-
