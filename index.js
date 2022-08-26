@@ -35,6 +35,13 @@ const sunValue = document.getElementById("sunValue");
 const bars = document.getElementsByClassName("bar");
 const allBars = document.querySelectorAll(".bar");
 
+const weekday = [day7,day1,day2,day3,day4,day5,day6];
+const weekBar = [bar7,bar1,bar2,bar3,bar4,bar5,bar6];
+
+const d = new Date();
+const currentDay = weekday[d.getDay()];
+const currentBar = weekBar[d.getDay()];
+
 
 fetch("./data.json")
     .then(function(resp) {
@@ -42,9 +49,8 @@ fetch("./data.json")
     })
     .then(function(data) {
 
-        day3.setAttribute("aria-selected", true);
-        bar3.classList.add("active");
-        day1.setAttribute("aria-selected", false);
+        currentDay.setAttribute("aria-selected", true);
+        currentBar.classList.add("active");
 
         mon.innerHTML = data[0].day;
         tue.innerHTML = data[1].day;
@@ -72,29 +78,16 @@ fetch("./data.json")
     });
 
 
-//----- Hover box effect and change focus ----//
+//----- Hover box effect ----//
 
     for (let one of bars) {
         one.addEventListener("mouseover", hoverEffect);
         function hoverEffect() {
             one.firstElementChild.style = "display: flex;";
         }
+
         one.addEventListener("mouseout", removeHover);
         function removeHover() {
             one.firstElementChild.style = "display: none;";
-        }
-
-        one.addEventListener("click", changefocus);
-        function changefocus() {
-
-            for (let all of allBars) {
-            all.classList.add("inactive");
-            all.classList.remove("active");
-            all.parentElement.setAttribute("aria-selected", false);
-            }
-
-            one.classList.remove("inactive");
-            one.classList.add("active");
-            one.parentElement.setAttribute("aria-selected", true);
-        }
+        }    
     }
