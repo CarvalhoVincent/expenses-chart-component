@@ -49,7 +49,7 @@ fetch("./data.json")
     })
     .then(function(data) {
 
-        currentDay.setAttribute("aria-selected", true);
+        currentDay.setAttribute("data-value", true);
         currentBar.classList.add("active");
 
         mon.innerHTML = data[0].day;
