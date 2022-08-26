@@ -205,6 +205,11 @@ select {
 }
 
 @media (min-width: 35em) {
+
+    .header {
+        margin-top: 11.375rem;
+    }
+
     .header, .main {
         width: 33.75rem;
         margin-inline: auto;
